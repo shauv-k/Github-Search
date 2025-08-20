@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github Search</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" 
+    integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>
+                <i class="fa-brands fa-github"></i> Github  Search
+            </h1>
+            <p>Search for any Github user and their repositories</p>
+        </header>
+
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Enter Github username...">
+            <button id="search-button">Search</button>
+        </div>
+
+        <div id="profile-container" class="hidden">
+            <div class="profile-header">
+                <img src="" alt="User Avatar" id="avatar">
+                <div class="profile-info">
+                    <h2 id="name">Name</h2>
+                    <p id="username">Username</p>
+                    <p id="bio">Bio</p>
+                    <div class="loc-date">
+                        <p>
+                            <i class="fa-solid fa-location-dot"></i> 
+                            <span id="location">Not specified</span>
+                        </p>
+                        <p>
+                            <i class="fa-solid fa-calendar-days"></i> 
+                            Joined
+                            <span id="date"></span>
+                        </p>
+                    </div>
+                    <a id="profile-link" class="btn" target="_blank">View Profile</a>
+                </div>
+            </div>
+
+            <div class="stats">
+                <div class="stat">
+                    <i class="fa-solid fa-users"></i>
+                    <span id="followers"></span>
+                    Followers  
+                </div>
+                <div class="stat"> 
+                    <i class="fa-solid fa-user-group"></i>
+                    <span id="following"></span>
+                    Following
+                </div>
+                <div class="stat">
+                    <i class="fa-solid fa-code-branch"></i>
+                    <span id="repos"></span>
+                    Repositories
+                </div>
+            </div>
+
+            <div class="adn-info">
+                <div class="info-item" id="company-container">
+                    <i class="fa-solid fa-building"></i>
+                    <span id="company">Not specified</span>
+                </div>
+                <div class="info-item" id="blog-container">
+                    <i class="fa-solid fa-link"></i>
+                    <a target="_blank" id="blog">No Website</a>
+                </div>
+                <div class="info-item" id="x-container">
+                    <i class="fa-brands fa-x-twitter"></i>
+                    <a target="_blank" id="x">Not Specified</span>
+                </div>
+            </div>
+
+            <div class="repos">
+                <h3>Latest Repositories</h3>
+                <div class="repos-container" id="repos-container">
+                    <!-- Repositories will be dynamically inserted here -->
+
+                </div>
+
+                <div id="repos-load" class="loading-repos">Loading repositories...</div>
+
+                <div id="repos-no-load" class="loading-repos hidden">
+                    <p>Could not load repositories</p>
+                </div>
+            </div>
+        
+        </div>
+
+        <div id="error-container" class="hidden">
+            <p>No user found. Please enter a valid user.</p>
+        </div>
+    </div>
+
+    <template id="repo-template">
+        <div class="repo-card">
+            <a class="repo-name" target="_blank">
+                <i class="fas fa-code-branch"></i> <span class="repo-title"></span>
+            </a>
+            <p class="repo-description"></p>
+            
+            <div class="repo-meta">
+                <div class="repo-meta-item language hidden">
+                    <i class="fas fa-circle"></i> <span class="repo-language"></span>
+                </div>
+                <div class="repo-meta-item">
+                    <i class="fas fa-star"></i> <span class="repo-stars"></span>
+                </div>
+                <div class="repo-meta-item">
+                    <i class="fas fa-code-fork"></i> <span class="repo-forks"></span>
+                </div>
+                <div class="repo-meta-item">
+                    <i class="fas fa-history"></i> <span class="repo-updated"></span>
+                </div>
+            </div>
+        </div>
+    </template>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
